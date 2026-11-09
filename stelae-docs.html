@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stelae theme documentation</title>
+<style>
+  :root { --bg:#fff; --fg:#111; --muted:#5c5c5c; --line:#d8d6d1; --soft:#f1efea; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#111; --fg:#f4f3ef; --muted:#a8a8a8; --line:#3a3a3a; --soft:#1b1b1b; } }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.65 system-ui, sans-serif; }
+  .wrap { max-width:46rem; margin:0 auto; padding:2.5rem 1rem 5rem; }
+  h1 { font-size:2.25rem; font-weight:400; letter-spacing:.02em; margin:0 0 .5rem; }
+  h2 { font-size:1.5rem; font-weight:500; margin:3rem 0 .75rem; padding-top:1.5rem; border-top:1px solid var(--line); }
+  h3 { font-size:1.125rem; margin:1.75rem 0 .5rem; }
+  p, li { max-width:42rem; }
+  code { background:var(--soft); padding:.1em .35em; border-radius:3px; font-size:.9em; }
+  pre { background:var(--soft); padding:1rem; overflow-x:auto; border-radius:4px; }
+  table { border-collapse:collapse; width:100%; font-size:.95rem; }
+  th, td { text-align:left; padding:.5rem .6rem; border-bottom:1px solid var(--line); vertical-align:top; }
+  nav ul { columns:2; padding-left:1.1rem; }
+  .muted { color:var(--muted); }
+  a { color:inherit; }
+</style>
+</head>
+<body>
+<main class="wrap">
+<h1>Stelae theme documentation</h1>
+<p class="muted">Version 0.1.0. Stelae is an Online Store 2.0 theme for design-led stores that sell furniture, lighting, ceramics, homewares and other considered objects.</p>
+
+<nav aria-label="Contents">
+<ul>
+  <li><a href="#getting-started">Getting started</a></li>
+  <li><a href="#finish-swatches">Material and finish swatches</a></li>
+  <li><a href="#colors">Colors and typography</a></li>
+  <li><a href="#header-footer">Header and footer</a></li>
+  <li><a href="#home">Home page sections</a></li>
+  <li><a href="#product">Product pages</a></li>
+  <li><a href="#collections">Collections, search and filtering</a></li>
+  <li><a href="#cart">Cart</a></li>
+  <li><a href="#other">Other pages</a></li>
+  <li><a href="#apps">Apps and custom Liquid</a></li>
+  <li><a href="#support">Support</a></li>
+</ul>
+</nav>
+
+<h2 id="getting-started">Getting started</h2>
+<ol>
+  <li>In your Shopify admin, go to <strong>Online Store</strong> &gt; <strong>Themes</strong> and add Stelae to your library.</li>
+  <li>Select <strong>Customize</strong> to open the theme editor.</li>
+  <li>Add your logo in the header section, set colors and fonts under <strong>Theme settings</strong>, then build your home page by adding sections.</li>
+  <li>Create your navigation under <strong>Content</strong> &gt; <strong>Menus</strong>, then choose it in the header and footer settings.</li>
+</ol>
+
+<h2 id="finish-swatches">Material and finish swatches</h2>
+<p>Stelae's signature feature lets shoppers choose a material or finish, such as brushed brass or matte black, and see only the photos for that finish.</p>
+
+<h3>1. Add a Finish option to your product</h3>
+<p>In the product page in your admin, add an option named <code>Finish</code> and enter its values, for example <code>Brushed brass</code> and <code>Matte black</code>. Add other options (such as Size) as usual.</p>
+
+<h3>2. Tag your photos</h3>
+<p>Open each product image and edit its alt text. Add the finish after a vertical bar, using the format <code>Description | Finish: Value</code>.</p>
+<pre>Floor lamp in brass | Finish: Brushed brass
+Floor lamp in black | Finish: Matte black
+Lamp detail shot</pre>
+<ul>
+  <li>The value must match the option value exactly, apart from capital letters.</li>
+  <li>Images with no finish tag appear for every finish.</li>
+  <li>The text before the bar becomes the image's alt text for screen readers.</li>
+  <li>The finish option can be named something else. In the product page template, select the <strong>Variant picker</strong> block and change <strong>Finish option name</strong>.</li>
+</ul>
+
+<h3>3. Show colors or images on the swatches</h3>
+<p>Stelae displays swatches that you set up in Shopify. In your admin, link the option to a category metafield that supports swatches, or add swatch colors or images to the option values. Options without swatches show as text buttons.</p>
+
+<h3>What shoppers see</h3>
+<ul>
+  <li>Picking a finish filters the gallery, updates the selected finish label and price, and switches the variant.</li>
+  <li>Combinations that do not exist are marked as unavailable.</li>
+  <li>The variant's featured image is shown first when it matches the chosen finish.</li>
+</ul>
+
+<h2 id="colors">Colors and typography</h2>
+<h3>Color schemes</h3>
+<p>Under <strong>Theme settings</strong> &gt; <strong>Colors</strong>, you can edit four color schemes. Each scheme sets background, text, button, button label and border colors. Every section has a <strong>Color scheme</strong> setting, so you can alternate light, warm and dark bands down a page.</p>
+<h3>Typography</h3>
+<p>Choose a heading font and a body font from the Shopify font library. You can also set headings to display in uppercase.</p>
+<h3>Layout</h3>
+<p>Set the maximum page width and the vertical spacing between sections.</p>
+<h3>Product cards</h3>
+<p>Choose the image ratio, whether to show the vendor, and whether a second image appears on hover.</p>
+
+<h2 id="header-footer">Header and footer</h2>
+<h3>Header</h3>
+<ul>
+  <li>Upload a logo and set its width. If you do not upload one, your store name is shown.</li>
+  <li>Choose the main menu. Menus with up to three levels are supported.</li>
+  <li>Choose the customer account menu if you use new customer accounts.</li>
+  <li>Turn the sticky header on or off.</li>
+  <li>The search icon opens a full search panel with predictive results.</li>
+</ul>
+<h3>Footer</h3>
+<p>Add blocks for menus, text and an email signup form. Settings let you show social icons, Follow on Shop (requires Shop Pay), payment icons, and country and language selectors. Add your social profile links under <strong>Theme settings</strong> &gt; <strong>Social media</strong>.</p>
+
+<h2 id="home">Home page sections</h2>
+<table>
+  <tr><th>Section</th><th>What it does</th></tr>
+  <tr><td>Hero</td><td>Full-width image banner with a small heading, heading, text and a button, with controls for height, overlay darkness and text position.</td></tr>
+  <tr><td>Featured collection</td><td>A grid of products from one collection.</td></tr>
+  <tr><td>Featured product</td><td>Shows one product with its gallery, finish swatches and add to cart button. Blocks can be reordered.</td></tr>
+  <tr><td>Collection list</td><td>Cards linking to chosen collections.</td></tr>
+  <tr><td>Image with text</td><td>A split layout for storytelling, with the image on either side.</td></tr>
+  <tr><td>Rich text</td><td>A centered statement with heading, text and buttons.</td></tr>
+  <tr><td>Email signup</td><td>A newsletter signup form.</td></tr>
+  <tr><td>Custom Liquid</td><td>A free area for your own code or app snippets.</td></tr>
+</table>
+
+<h2 id="product">Product pages</h2>
+<p>The product page is built from blocks that you can add, remove and reorder: vendor, heading, price, description, variant picker, quantity selector, buy buttons, pickup availability, Shop Pay Installments banner, collapsible rows, custom Liquid and app blocks.</p>
+<ul>
+  <li><strong>Sticky product details:</strong> keeps the product information in view as shoppers scroll through the gallery on large screens.</li>
+  <li><strong>Collapsible rows:</strong> use these for shipping, care or materials. Each has its own heading and text.</li>
+  <li><strong>Dynamic checkout buttons:</strong> turn these on or off in the buy buttons block.</li>
+  <li><strong>Product recommendations:</strong> choose related or complementary products. Complementary products are managed in the Shopify Search &amp; Discovery app.</li>
+  <li>Subscriptions and selling plans, and gift card recipient forms, are supported.</li>
+</ul>
+
+<h2 id="collections">Collections, search and filtering</h2>
+<ul>
+  <li>Collection pages show a banner, a product grid, sorting and filters. Set up filters in the Shopify Search &amp; Discovery app.</li>
+  <li>Choose the number of columns in the collection section settings.</li>
+  <li>The search results page shows products, articles and pages, and supports the same filters.</li>
+</ul>
+
+<h2 id="cart">Cart</h2>
+<p>The cart page lists items with quantity controls, shows discounts and the subtotal, and goes to checkout. Accelerated checkout buttons can be turned on or off in the cart section. You can turn the order note field on or off under <strong>Theme settings</strong> &gt; <strong>Cart</strong>.</p>
+
+<h2 id="other">Other pages</h2>
+<ul>
+  <li><strong>Pages:</strong> a default page template and a contact page template with a form.</li>
+  <li><strong>Blog and articles:</strong> a blog grid with pagination, and an article page with comments.</li>
+  <li><strong>404 and password pages:</strong> styled to match the theme.</li>
+  <li><strong>Gift cards:</strong> a gift card page with the code, balance, a QR code, Apple Wallet link and a print button.</li>
+</ul>
+
+<h2 id="apps">Apps and custom Liquid</h2>
+<p>Product and featured product sections accept app blocks, so apps that support theme app extensions can be added without editing code. For anything else, use the <strong>Custom Liquid</strong> section or block.</p>
+
+<h2 id="support">Support</h2>
+<p>For help with Stelae, email <a href="mailto:yourthemes.support@gmail.com">yourthemes.support@gmail.com</a>. Please include your store address, the page where the issue happens, and a screenshot if you can.</p>
+</main>
+</body>
+</html>
